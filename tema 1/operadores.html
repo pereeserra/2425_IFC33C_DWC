@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores</title>
+</head>
+<body>
+    <script>
+        //Operadores asignacion
+        var x = 5;
+        var y = 7;
+
+        var esVerdad = true;
+
+        var a = "Ho";
+        var b = "la";
+
+        //Concatenar
+        var c = a + b;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        //Operadores aritmeticos - Numeros
+        x = x * 4;
+        x = x + 4;
+        x = x - 4;
+        x = x / 4;
+        x = x % 4; //Modulo - Obtener el resto de una division
+        x = x ** 4; //Exponente
+
+        x++; // x = x + 1;
+        x--; // x = x - 1;
+
+        x+=4; // x = x + 4
+        x=4; // x = x 4
+        x/=4; // x = x / 4
+        x=4 // x = x**4
+        x%=4; // x = x % 4 
+
+        // Operadores de comparación 
+        /*
+            == -> IGUAL
+            ! = -> DISTINTO
+            >= -> MAYOR O IGUAL
+-> MAYOR
+            < -> MENOR 
+            <= -> MENOR O IGUAL
+            ? //OPERADOR TERNARIO -> (y < x)?"hola":"adios"
+
+            === -> Igual en valor e igual en tipo
+            !== -> Distinto en valor o distinto en tipo
+            */
+
+            // Para las comparaciones utilizaremos === y !=
+
+            var x = 5;
+            console.log("x == 5", x == 5);
+            console.log("x == '5'", x == '5');
+            console.log(typeof x, typeof '5');
+            console.log("x === 5", x === 5);
+            console.log("x === '5'", x === '5');
+
+            console.log("x != 5", x != 5);
+            console.log("x != '5'", x != '5');
+            console.log(typeof x, typeof '5');
+            console.log("x !== 5", x === 5);
+            console.log("x !== '5'", x !== '5');
+
+            // Cuando hagamos peticiones asincronas debemos asegurarnos
+            // de que los numeros son numeros y los strings son strings
+
+            var k = 9;
+            var l = "7";
+            console.log(k + l); // Castea a string
+            // Mejor usar parseInt para asegurar que sean numeros
+            console.log(parseInt(k) + parseInt(l));
+
+            //Operadores logicos
+            /*
+                && -> AND
+                || -> OR
+                ! -> NOT
+            */
+    </script>
+</body>
+</html>

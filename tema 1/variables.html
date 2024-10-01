@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <script>
+        var a = null; //Tipo NUL
+        var b; //Tipo UNDEFINIED
+        var c = false; //Tipo BOOLEAN
+        var d = 4; //Tipo NUMBER
+        var e = 5.6; //Tipo NUMBER
+        var f = "Hola" //Tipo STRING
+        //Tipo OBJECT
+        var g = {
+            nombre: "Pere",
+            apellidos: "Serra Tugores"
+        };
+
+        []
+
+        console.log(a, b, c, d, e, f, g)
+        console.log(typeof a)
+        console.log(typeof b)
+        console.log(typeof c)
+        console.log(typeof d)
+        console.log(typeof e)
+        console.log(typeof f)
+        console.log(typeof g)
+
+        //Los tipos de las variables son dinamicas
+
+        a = 3;
+
+        console.log(a)
+        console.log(typeof a)
+
+        //var -> para declarar variables
+        //ES6 -> declarar las variables con let o const
+
+        // AMBITO
+        let p1 = "hola";
+        function prueba() {
+            p1 = "adios"
+            console.log(p1);
+        }
+
+        prueba();
+        console.log(p1);
+
+        z = 99; //Variable no declarada, MAL! Provoca hoisting.
+
+        console.log(z);
+
+
+    </script>
+
+</body>
+</html>

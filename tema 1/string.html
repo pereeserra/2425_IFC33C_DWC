@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+</head>
+<body>
+    <script>
+        var x = "hola"; //Comillas dobles("")
+        var y = 'hola'; //Comillas simples ('')
+        var z = `hola`; //Acentos (``)
+
+        // Las comillas dobles y simples no son multilinea
+
+        var w = "Hola, " + 
+            "que tal?"
+
+        var q = w.concat(" Muy bien, y tu?");
+
+        var t = "Hola \"Pere\" ";
+        var s = 'Adios \'Pere\' ';
+        var r = "Hello 'Pere' ";
+        var rr = 'Bye, "Pere" ';
+
+        console.log(x);
+        console.log(y);
+        console.log(z);
+
+        console.log(w);
+        console.log(q);
+        console.log(t);
+        console.log(s);
+        console.log(r);
+        console.log(rr);
+
+        //PROPIEDADES
+        console.log(rr.length); //Length nos indica el numero de caracteres del String
+
+        //Los indices del String siemore empiezan en 0
+        for (var i=0; i<=rr.length - 1; i++){
+            console.log(rr[i]);
+        }
+
+
+        console.log("En la posicion 7 esta la letra...", rr.charAt(6));
+        console.log("El codigo UTF-16 del caracter de la posicion 7 del string rr es...", rr.charCodeAt(6));
+
+
+        console.log(rr.indexOf("ol", 3));
+        console.log(rr.search('t'));
+        console.log(rr.includes("ye"));
+        console.log(rr.includes("t"));
+    </script>
+</body>
+</html>
