@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/css/piano.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">   
+</head>
+<body>
+    <header>Score Finder</header>
+    <ul class="piano">
+        <li class="key">
+            <span class="white-key" id="C" onclick="addCerca('DO')"></span>
+            <span class="black-key" id="Cs" onclick="addCerca('DO', true)"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="D" onclick="addCerca('RE')"></span>
+            <span class="black-key" id="Ds" onclick="addCerca('RE', true)"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="E" onclick="addCerca('MI')"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="F" onclick="addCerca('FA')"></span>
+            <span class="black-key" id="Fs" onclick="addCerca('FA', true)"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="G" onclick="addCerca('SOL')"></span>
+            <span class="black-key" id="Gs" onclick="addCerca('SOL', true)"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="A" onclick="addCerca('LA')"></span>
+            <span class="black-key" id="As" onclick="addCerca('LA', true)"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="B" onclick="addCerca('SI')"></span>
+        </li>
+        <li class="key">
+            <span class="white-key" id="C2" onclick="addCerca('DO2')"></span>
+        </li>
+    </ul>
+
+    <section class="search-section">
+        <h2>CERCANT...</h2>
+        <div class="search-input">
+            <p id="search-notes"></p>
+            <button class="clear-button" onclick="clearSearch()">Esborrar</button>
+        </div>
+
+        <h3>RESULTATS:</h3>
+        <div class="results" id="results">
+        </div>
+    </section>
+
+    <script>
+        let search = [];
+
+        function Nota(nom, sostingut = false) {
+            this.nom = nom;
+            this.sostingut = sostingut;
+        }
+
+        function addCerca(nom, sostingut = false) {
+            let novaNota = new Nota(nom, sostingut);
+            search.push(novaNota);
+            actualitzarVisualCerca();
+            cercador();
+        }
+
+        function clearSearch() {
+            search = [];
+            document.getElementById("search-notes").innerText = "";
+            document.getElementById("results").innerHTML = "";
+        }
+
+        function actualitzarVisualCerca() {
+            let notesText = search.map(nota => nota.sostingut ? nota.nom + "#" : nota.nom).join(" ");
+            document.getElementById("search-notes").innerText = notesText;
+        }
+
+        function cercador() {
+            let searchPattern = search.map(nota => nota.sostingut ? nota.nom + "#" : nota.nom).join(" ");
+            let resultats = [];
+
+            if (searchPattern === "DO RE") {
+                resultats = ["La Balanguera", "Happy Birthday"];
+            } else if (searchPattern === "DO RE DO") {
+                resultats = ["Happy Birthday"];
+            } else if (searchPattern === "LA#") {
+                resultats = ["La Balanguera"];
+            } else if (searchPattern === "MI SOL") {
+                resultats = [];
+            }
+
+            mostrarResultats(resultats);
+        }
+
+        function mostrarResultats(resultats) {
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            if (resultats.length > 0) {
+                resultats.forEach(partitura => {
+                    let div = document.createElement("div");
+                    div.className = "song";
+                    div.innerHTML = `<p>${partitura}</p>`;
+                    resultsDiv.appendChild(div);
+                });
+            } else {
+                resultsDiv.innerHTML = "<p>Sense resultats</p>";
+            }
+        }
+    </script>
+</body>
+</html>
